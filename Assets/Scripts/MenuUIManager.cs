@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-
-
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
