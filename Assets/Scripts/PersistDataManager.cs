@@ -13,7 +13,6 @@ public class PersistDataManager : MonoBehaviour
     public string playersName;
     public int playersScore;
     public string hiScorePlayerName;
-    //public int hiScore;
 
     private void Awake()
     {
@@ -35,21 +34,13 @@ public class PersistDataManager : MonoBehaviour
     {
         public string savedPlayerName;
         public int savedPlayersScore;
-        //public string savedHiScorePlayerName;
-        //public int savedHiScore;
     }
 
     public void SaveName()
     {
-        //Debug.Log("SaveName called: playersName = " + playersName);
-        //Debug.Log("SaveName called: savedPlayersScore = " + playersScore);
-        //Debug.Log("SaveName called: savedHiScore = " + hiScore);
-
         SaveData data = new SaveData();
         data.savedPlayerName = playersName;
         data.savedPlayersScore = playersScore;
-        //data.savedHiScorePlayerName = hiScorePlayerName;
-        //data.savedHiScore = hiScore;
 
         string json = JsonUtility.ToJson(data);
 
@@ -58,21 +49,15 @@ public class PersistDataManager : MonoBehaviour
 
     public void LoadName()
     {
-        //Debug.Log("LoadName called:");
-
         string path = Application.persistentDataPath + "/datapersistenceproject.json";
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-            //playersName = data.savedPlayerName;
             playersScore = data.savedPlayersScore;
             hiScorePlayerName = data.savedPlayerName;
 
-            //Debug.Log("LoadName data = playersName = " + playersName);
-            //Debug.Log("LoadName data = playersScore = " + playersScore);
-            //Debug.Log("LoadName data = hiScore = " + hiScore);
         }
     }
 

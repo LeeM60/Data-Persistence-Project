@@ -20,8 +20,6 @@ public class MainManager : MonoBehaviour
 
     public Text HiScoreText;
     private int hiScore;
-    //private int currentScore;
-
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +43,7 @@ public class MainManager : MonoBehaviour
         {
             hiScore = PersistDataManager.Instance.playersScore;
             
-            HiScoreText.text = "Best Score: " + hiScore + " - " + PersistDataManager.Instance.hiScorePlayerName;
+            HiScoreText.text = "Highest Score: " + hiScore + " - " + PersistDataManager.Instance.hiScorePlayerName;
             UpdateScoreText();
         }
 
@@ -83,7 +81,7 @@ public class MainManager : MonoBehaviour
     void AddPoint(int point)
     {
         m_Points += point;
-        
+
         UpdateScoreText();
      }
 
@@ -93,7 +91,6 @@ public class MainManager : MonoBehaviour
         GameOverText.SetActive(true);
         if (m_Points > hiScore)
         {
-            Debug.Log("New HiScore: old score = " + hiScore + " , new score = " + m_Points);
             //currentScore = m_Points;
             
             PersistDataManager.Instance.playersScore  = m_Points;

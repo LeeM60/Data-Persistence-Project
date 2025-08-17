@@ -7,6 +7,10 @@ public class Ball : MonoBehaviour
 {
     private Rigidbody m_Rigidbody;
 
+    public AudioSource AudioSource;
+    public AudioClip AudioClip;
+
+
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
@@ -32,5 +36,9 @@ public class Ball : MonoBehaviour
         }
 
         m_Rigidbody.linearVelocity = velocity;
+
+        //play a sound
+        AudioSource.clip = AudioClip;
+        AudioSource.Play();
     }
 }
